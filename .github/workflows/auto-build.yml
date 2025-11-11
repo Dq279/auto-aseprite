@@ -2,7 +2,7 @@ name: Auto build Aseprite
 
 on:
   push:
-    branches: main
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -35,10 +35,9 @@ jobs:
           arch: x64
 
       - name: Install OpenSSL 3
-  run: |
-    choco install openssl.light -y
-    echo "OpenSSL installed"
-
+        run: |
+          choco install openssl.light -y
+          echo "OpenSSL installed"
 
       - name: Build Aseprite
         run: |
