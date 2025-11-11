@@ -35,9 +35,10 @@ jobs:
           arch: x64
 
       - name: Install OpenSSL 3
-        run: |
-          choco install openssl.light --version=3.2.1 -y
-          echo "OpenSSL 3 installed"
+  run: |
+    choco install openssl.light -y
+    echo "OpenSSL installed"
+
 
       - name: Build Aseprite
         run: |
