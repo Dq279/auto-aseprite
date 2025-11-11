@@ -41,6 +41,11 @@ jobs:
           cd build
           cmake "${{ github.workspace }}/src/aseprite" -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DLAF_BACKEND=skia -DSKIA_DIR="${{ github.workspace }}/src/skia" -DSKIA_LIBRARY_DIR="${{ github.workspace }}/src/skia/out/Release-x64" -DSKIA_LIBRARY="${{ github.workspace }}/src/skia/out/Release-x64/skia.lib"
           cmake --build . --config MinSizeRel --target aseprite
+          - name: Install OpenSSL 3
+  run: |
+    choco install openssl.light --version=3.2.1 -y
+    echo "OpenSSL 3 installed"
+
           copy "C:/Windows/System32/libcrypto-3-x64.dll" ./bin
 
       - name: Get version
